@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/colorPrimary"
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
+        <!--上面的tabMode="fix"和tabGravity="fill"同时设置后，这样在少数几个tab的情况下也能占满全屏，但是tab太多后会很挤，全部tab显示在一个屏幕内-->
+        <!--而app:tabMode="scrollable"则是可以滑动tab，tab过多会移动到屏幕外，划过去即可，但太少不会占满屏幕 -->
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#bdbdbd"/>
+
+        <RadioGroup
+            android:id="@+id/bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bottomTabBackground"
+            android:layout_marginBottom="55dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/bottom_tab_wechat_bt"
+                style="@style/BottomTabMenuBt"
+                android:drawableTop="@drawable/tab_menu_wechat_bt_selector"
+                android:text="微信" />
+
+            <RadioButton
+                android:id="@+id/bottom_tab_phone_bt"
+                style="@style/BottomTabMenuBt"
+                android:drawableTop="@drawable/tab_menu_phone_bt_selector"
+                android:text="通讯录" />
+
+            <RadioButton
+                android:id="@+id/bottom_tab_find_bt"
+                style="@style/BottomTabMenuBt"
+                android:drawableTop="@drawable/tab_menu_find_bt_selector"
+                android:text="发现" />
+
+            <RadioButton
+                android:id="@+id/bottom_tab_mine_bt"
+                style="@style/BottomTabMenuBt"
+                android:drawableTop="@drawable/tab_menu_mine_bt_selector"
+                android:text="我" />
+
+        </RadioGroup>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
+
